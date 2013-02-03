@@ -1,0 +1,8 @@
+caches:
+ ? Default
+ : {name: Default,              # name of cache
+   numberOfBuffers: 1,          # Number of buffers
+   initialCapacity: 100000,     # Initial capacity 
+   ramMegaBytes: 1,             # RAM allocation in MB
+   concurrencyLevel: 4,         # Concurrency level 
+   disposalTime: 10}            # Disposal time in seconds

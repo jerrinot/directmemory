@@ -28,7 +28,9 @@ import java.util.concurrent.ConcurrentMap;
 
 import org.apache.directmemory.cache.CacheService;
 import org.apache.directmemory.cache.CacheServiceImpl;
+import org.apache.directmemory.conf.CacheConfiguration;
 import org.apache.directmemory.measures.Ram;
+import org.apache.directmemory.measures.Sizing;
 import org.apache.directmemory.memory.MemoryManagerService;
 import org.apache.directmemory.memory.MemoryManagerServiceImpl;
 import org.apache.directmemory.memory.Pointer;
@@ -64,10 +66,20 @@ public final class DirectMemory<K, V>
     private Serializer serializer;
 
     private MemoryManagerService<V> memoryManager;
-
+    
     public DirectMemory()
     {
         // does nothing
+    }
+    
+    public DirectMemory( CacheConfiguration cacheConfiguration) {
+        checkArgument( cacheConfiguration != null, "Impossible to create a DirectMemory instance from a null configuration" );
+        
+        numberOfBuffers = cacheConfiguration.getNumberOfBuffers();
+        size = Sizing.Mb(cacheConfiguration.getRamMegaBytes());
+        initialCapacity = cacheConfiguration.getInitialCapacity();
+        concurrencyLevel = cacheConfiguration.getConcurrencyLevel();
+        disposalTime = cacheConfiguration.getDisposalTime();
     }
 
     public DirectMemory( DirectMemory<K, V> prototype )

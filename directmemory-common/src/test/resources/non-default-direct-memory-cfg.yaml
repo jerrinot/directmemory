@@ -1,0 +1,16 @@
+caches:
+ ? NonDefault
+ : {name: NonDefault,           # name of cache
+   numberOfBuffers: 1,          # Number of buffers
+   initialCapacity: 100000,     # Initial capacity 
+   ramMegaBytes: 1,             # RAM allocation in MB
+   concurrencyLevel: 4,         # Concurrency level 
+   disposalTime: 10}            # Disposal time in seconds
+ 
+ ? NonDefault2 
+ : {name: NonDefault2,          # name of cache
+   numberOfBuffers: 5,          # Number of buffers
+   initialCapacity: 10000,      # Initial capacity 
+   ramMegaBytes: 2,             # RAM allocation in MB
+   concurrencyLevel: 3,         # Concurrency level 
+   disposalTime: 5}             # Disposal time in seconds
