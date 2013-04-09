@@ -91,7 +91,7 @@ public class DefaultCacheManager
 
     private DirectMemoryConfiguration loadDirectMemoryConfiguration()
     {
-        return new DelegatingDirectMemoryConfigurationFactory().buildConfiguration();
+        return new DelegatingDirectMemoryConfigurationFactory().build();
     }
 
 }

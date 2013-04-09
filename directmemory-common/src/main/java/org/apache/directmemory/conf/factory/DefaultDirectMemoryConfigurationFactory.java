@@ -13,7 +13,7 @@ public class DefaultDirectMemoryConfigurationFactory implements DirectMemoryConf
 {
 
     @Override
-    public DirectMemoryConfiguration buildConfiguration()
+    public DirectMemoryConfiguration build()
     {
         DirectMemoryConfiguration directMemoryConfiguration = new DirectMemoryConfiguration();
         CacheConfiguration defaultCacheConfiguraiton = createDefaultCacheConfiguraiton();

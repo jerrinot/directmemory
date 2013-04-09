@@ -12,11 +12,24 @@ import org.apache.directmemory.conf.DirectMemoryConfiguration;
 public class FluentDirectMemoryConfigurationFactory
     implements DirectMemoryConfigurationFactory
 {
+	private DirectMemoryConfiguration configuration;
+	
+	public FluentDirectMemoryConfigurationFactory() {
+		this.configuration = new DirectMemoryConfiguration();
+	}
+	
+	public FluentCacheConfigurationFactory newCache(String name) {
+		return new FluentCacheConfigurationFactory(configuration, name);
+	}
+	
+	public FluentCacheConfigurationFactory newCache() {
+		return new FluentCacheConfigurationFactory(configuration, DirectMemoryConfiguration.DEFAULT_CACHE_NAME);
+	}
 
     @Override
-    public DirectMemoryConfiguration buildConfiguration()
+    public DirectMemoryConfiguration build()
     {
-        throw new UnsupportedOperationException("Not implemented yet");
+        return configuration;
     }
 
 }

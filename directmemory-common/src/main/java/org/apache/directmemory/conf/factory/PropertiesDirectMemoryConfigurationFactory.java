@@ -51,7 +51,7 @@ public class PropertiesDirectMemoryConfigurationFactory
     }
 
     @Override
-    public DirectMemoryConfiguration buildConfiguration()
+    public DirectMemoryConfiguration build()
     {
         InputStream configurationResource = this.getClass().getClassLoader().getResourceAsStream( filename );
         if ( configurationResource == null )

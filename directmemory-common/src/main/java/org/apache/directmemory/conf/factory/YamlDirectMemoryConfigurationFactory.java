@@ -25,7 +25,7 @@ public class YamlDirectMemoryConfigurationFactory
     }
 
     @Override
-    public DirectMemoryConfiguration buildConfiguration()
+    public DirectMemoryConfiguration build()
     {
         InputStream configurationResourceStream = this.getClass().getClassLoader().getResourceAsStream( filename );
         if (configurationResourceStream == null) {

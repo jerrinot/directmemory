@@ -12,7 +12,7 @@ public class PropertiesDirectMemoryConfigurationFactoryTest
     @Test
     public void testBasicScenarion()
     {
-        DirectMemoryConfiguration configuration = new PropertiesDirectMemoryConfigurationFactory().buildConfiguration();
+        DirectMemoryConfiguration configuration = new PropertiesDirectMemoryConfigurationFactory().build();
         
         CacheConfiguration cacheConfiguration = configuration.getCacheConfiguration( DirectMemoryConfiguration.DEFAULT_CACHE_NAME );
         

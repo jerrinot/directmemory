@@ -22,10 +22,10 @@ public class DelegatingDirectMemoryConfigurationFactory
     }
 
     @Override
-    public DirectMemoryConfiguration buildConfiguration()
+    public DirectMemoryConfiguration build()
     {
         for (DirectMemoryConfigurationFactory configurationFactory : factories) {
-            DirectMemoryConfiguration configuration = configurationFactory.buildConfiguration();
+            DirectMemoryConfiguration configuration = configurationFactory.build();
             if (configuration != null) {
                 return configuration;
             }

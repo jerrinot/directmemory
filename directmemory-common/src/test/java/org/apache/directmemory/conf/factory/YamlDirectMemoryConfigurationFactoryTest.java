@@ -15,7 +15,7 @@ public class YamlDirectMemoryConfigurationFactoryTest
     public void testBasicScenarion()
     {
         YamlDirectMemoryConfigurationFactory yamlDirectMemoryConfigurationFactory = new YamlDirectMemoryConfigurationFactory();
-        DirectMemoryConfiguration configuration = yamlDirectMemoryConfigurationFactory.buildConfiguration();
+        DirectMemoryConfiguration configuration = yamlDirectMemoryConfigurationFactory.build();
         
         assertEquals(  1, configuration.getCacheConfigurations().size() );
         CacheConfiguration cacheConfiguration = configuration.getCacheConfigurations().iterator().next();
@@ -30,13 +30,13 @@ public class YamlDirectMemoryConfigurationFactoryTest
     
     @Test
     public void testNonDefaultConfigurationFile() {
-        DirectMemoryConfiguration configuration = new YamlDirectMemoryConfigurationFactory(NON_DEFAULT_CONFIGURATION_FILENAME).buildConfiguration();
+        DirectMemoryConfiguration configuration = new YamlDirectMemoryConfigurationFactory(NON_DEFAULT_CONFIGURATION_FILENAME).build();
         assertEquals( 2,  configuration.getCacheConfigurations().size() );
     }
     
     @Test
     public void testNonExistingConfigurationFile() {
-        DirectMemoryConfiguration configuration = new YamlDirectMemoryConfigurationFactory("shouldNotExist").buildConfiguration();
+        DirectMemoryConfiguration configuration = new YamlDirectMemoryConfigurationFactory("shouldNotExist").build();
         assertNull( configuration );
     }
 
